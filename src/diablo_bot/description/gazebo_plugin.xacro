@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <gazebo>
+        <plugin name="gazebo_ros2_control_plugin" filename="libgazebo_ros2_control.so">
+            <robot_sim_type>namespace/gazebo_ros2_control/GazeboSystem</robot_sim_type>
+            <parameters>$(find diablo_bot)/config/joint_trajectory_controller.yaml</parameters>
+        </plugin>
+    </gazebo>
+
+    <gazebo reference="r_sho_pitch_Link">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="r_sho_roll_Link">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="r_el_Link">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="r_wrist_Link">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="l_sho_pitch_Link">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="l_sho_roll_Link">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="l_el_Link">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="r_index_base_Link">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="r_index_middle_Link">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="r_index_tip_Link">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="r_mid_base_Link">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="r_mid_middle_Link">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="r_mid_tip_Link">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="r_thumb_base_Link">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="r_thumb_middle_Link">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="r_thumb_tip_Link">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+</robot>
