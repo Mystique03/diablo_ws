@@ -1,0 +1,10 @@
+build/
+install/
+log/
+*.pyc
+*.swp
+*.bak
+*.tmp
+*.cache
+*.idea
+*.vscode

@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: diablo_bot
+    relative_path: description/robot.urdf.xacro
+  srdf:
+    relative_path: config/diablo_robot.srdf
+  package_settings:
+    author_name: mystique
+    author_email: mystique@TODO.com
+    generated_timestamp: 1736748533
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
