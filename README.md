@@ -1,7 +1,7 @@
 # Diablo Bot
 
 ## Overview
-This project is a robotic system designed for simulation and motion planning using **ROS2 (Humble)** and **Gazebo Classic**. It leverages **MoveIt2** for motion planning, **KDL** for dynamics, and **Gazebo** for simulation. The repository follows a **colcon ROS2 workspace** structure, containing packages for robot description, configuration, and motion planning.
+This project is a robotic system designed for simulation and motion planning using **ROS2 (Humble)** and **Gazebo**. It leverages **MoveIt2** for motion planning, **KDL** for dynamics, and **Gazebo** for simulation. The repository follows a **colcon ROS2 workspace** structure, containing packages for robot description, configuration, and motion planning.
 
 ## Dependencies
 The project has been tested on **Ubuntu 22.04.3 LTS** and depends on the following software:
