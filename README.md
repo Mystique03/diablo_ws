@@ -21,39 +21,29 @@ This repository is organized as a **colcon ROS2 workspace**, consisting of the f
 - **config/** - Configuration files for dynamics, controller manager, and kinematics solver.
 - **description/** - URDF description, ROS controllers, and Gazebo plugin files.
 - **meshes/** - STL files for visualization in Gazebo and Rviz.
-- **scenes/** - Scene objects.
+- **scenes/** - includes scene objects for simulation.
 - **launch/** - Launch files for Gazebo and Rviz.
 
 ### **moveit_config_diablo**
-- **config/** - SRDF, URDF, KDL kinematics solver, and helper methods for MoveIt2.
+- **config/** - Includes SRDF, URDF, KDL kinematics solver, and helper methods for MoveIt2.
 - **launch/** - Launch files for MoveIt2 motion planning.
-
-### **Modifying MoveIt Setup**
-1. Source the MoveIt2 environment:
-   ```bash
-   source moveit/install/setup.bash
-   ```
-2. Run MoveIt Setup Assistant:
-   ```bash
-   ros2 run moveit_setup_assistant moveit_setup_assistant
-   ```
 
 ## Installation & Setup
 1. Install **ROS2 Humble** following the official guide.
 2. Install **Gazebo Classic** (latest supported version for ROS Humble).
 3. Install **MoveIt2** using the provided installation guide.
 4. Clone this repository and build the workspace using colcon:
-   ```bash
+   ```
    git clone git@github.com:Mystique03/diablo_ws.git
    cd diablo_ws
    colcon build --symlink-install
    source install/setup.bash
    ```
 
-## Commands
+## Usage
 
-### **1. Visualizing the Robot in Rviz**
-```bash
+### **1. Visualize Robot in Rviz**
+```
 # Terminal 1
 ros2 launch diablo_bot rsp.launch.py
 
@@ -64,44 +54,44 @@ rviz2
 ros2 run joint_state_publisher_gui joint_state_publisher_gui
 ```
 
-### **2. Visualizing the Robot in Gazebo**
-```bash
+### **2. Visualize Robot in Gazebo**
+```
 ros2 launch diablo_bot gz.launch.py
 ```
 
-### **3. Launching the Robot with ROS Control**
+### **3. Launch Robot with ROS Control**
 1. Navigate to `diablo_bot/description/ros2_control.xacro` and uncomment:
-   ```xml
+   ```
    <plugin>gazebo_ros2_control/GazeboSystem</plugin>
    ```
 2. Launch the robot with ROS Control:
-   ```bash
+   ```
    ros2 launch diablo_bot diablo.launch.py
    ```
 
-### **4. Launching the Robot with MoveIt2**
+### **4. Launch Robot with MoveIt2**
 1. Source MoveIt2 environment:
-   ```bash
-   source moveit2/install/setup.bash
+   ```
+   source <your_moveit2_package>/install/setup.bash
    ```
 2. Navigate to `diablo_bot/description/ros2_control.xacro` and uncomment:
-   ```xml
+   ```
    <plugin>mock_components/GenericSystem</plugin>
    ```
 3. Launch MoveIt2:
-   ```bash
+   ```
    ros2 launch moveit_config_diablo demo.launch.py
    ```
 
-### **5. Launching a Table & Mug Scene**
+### **5. Launch Table & Mug Scene**
 1. Launch the robot using the MoveIt2 commands above.
-2. In **Rviz**, import the scene:
-   ```bash
+2. In **Rviz**, Under **Scene Objects** import the scene:
+   ```
    diablo_bot/scenes/coffee_mug.scene
    ```
 
-### **6. Launching Joint State Publisher GUI with Gazebo**
-```bash
+### **6. Launch Joint State Publisher GUI with Gazebo**
+```
 # Terminal 1
 ros2 run diablo_bot diablo.launch.py
 
@@ -112,8 +102,8 @@ ros2 run diablo_bot js_to_trajectory.py
 ros2 run joint_state_publisher_gui joint_state_publisher_gui
 ```
 
-### **7. Running Inverse Kinematics**
-```bash
+### **7. Run Inverse Kinematics**
+```
 # Terminal 1
 ros2 run diablo_bot diablo.launch.py
 
@@ -124,14 +114,23 @@ ros2 run diablo_bot ikSolver.py
 ros2 topic pub /desired_end_effector_position geometry_msgs/msg/Point "{x: 0.0, y: 0.0, z: 0.0}"
 ```
 
-### **8. Running Forward Kinematics**
-```bash
+### **8. Run Forward Kinematics**
+```
 # Terminal 1
 ros2 run diablo_bot diablo.launch.py
 
 # Terminal 2
 ros2 run diablo_bot dh_fkSolver.py
 ```
+### **Modifying MoveIt Setup**
+1. Source the MoveIt2 environment:
+   ```
+   source moveit/install/setup.bash
+   ```
+2. Run MoveIt Setup Assistant:
+   ```
+   ros2 run moveit_setup_assistant moveit_setup_assistant
+   ```
 
 ### **Contributors**
 - **Mystique03** (GitHub: [Mystique03](https://github.com/Mystique03))
